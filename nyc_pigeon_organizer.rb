@@ -22,18 +22,12 @@ def nyc_pigeon_organizer(data)
     data.each do |bird_attribute, name_array| #(:color, {:purple => ["Theo", "Peter Jr.", "Lucky"]})
       name_array.each do |attribute, bird_names| #(:purple, ["Theo", "Peter Jr.", "Lucky"])
         if bird_names.include?(name)
-
-          att_hash[bird_attribute] << attribute.to_s
+          att_hash[bird_attribute] << attribute.to_s #converts symbol to string
         end #if
-
-
       end #name_array.each
     end #data.each
-
-    #assign att_hash to name
+  #assign att_hash to name
     nyc[name] = att_hash
-
   end #names.each
   nyc
-
 end
