@@ -1,44 +1,42 @@
 def nyc_pigeon_organizer (data)
-  final = {}
+new_hash ={}
 
-  data.each do |first_level, all_other|
-    all_other.each do |category, array|
-      array.each do |name|
-        final[name] = {:color => [], :gender => [], :lives => []}
+  data.each do |main_level,interior_levels|
+    interior_levels.each do |description_marker,array|
+     array.each do |name|
+       new_hash[name] = {:color => [], :gender => [], :lives =>[]}
+       #hash[key]= value 
       end 
     end 
   end 
-  x = final.keys
-  data[:color].each do |bird_color, name|
-    name.each do |bird_name|
-      x.each do |item|
-        if bird_name === item
-          final[item][:color] << bird_color.to_s
-        end 
+  #make a variable for key 
+  key_variable = new_hash.keys 
+  data[:color].each do |bird_color,names|
+    names.each do |bird_names|
+      key_variable.each do |key_name|
+        if(bird_names === key_name)
+         new_hash[key_name][:color] << bird_color.to_s
+         end 
       end 
-    end 
+    end   
   end 
-  data[:gender].each do |gender, type|
-    type.each do |bird_name|
-      x.each do |item|
-        if bird_name === item
-          final[item][:gender] << gender.to_s
-        end 
-      end 
+  data[:gender].each do |sex_type,name_type|
+    name_type.each do |bird_name| 
+      key_variable.each do |key_name|
+        if (bird_name === key_name)
+          new_hash[key_name][:gender] << sex_type.to_s
+        end  
+      end  
+    end
+  end   
+  data[:lives].each do |location,name_at_location|
+    name_at_location.each do |name|
+      key_variable.each do |key_name| 
+        if (name === key_name)
+          new_hash[key_name][:lives] << location.to_s
+        end    
+      end
     end 
-  end 
-  data[:lives].each do |location, name|
-    name.each do |bird_name|
-      x.each do |item|
-        if bird_name === item
-          final[item][:lives] << location
-        end 
-      end 
-    end 
-  end 
-  
-  return final 
+  end   
+return new_hash
 end 
-
-
-end
