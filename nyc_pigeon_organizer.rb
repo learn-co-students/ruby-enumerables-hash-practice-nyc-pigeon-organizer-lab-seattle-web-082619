@@ -1,7 +1,6 @@
 def nyc_pigeon_organizer(data)
   pigeon_list = {}
-  key = nil
-  
+
   data.each do |trait|
     key = trait[0]
     values = trait[1]
@@ -20,7 +19,6 @@ def nyc_pigeon_organizer(data)
       end
     end
   end
-  
-  p pigeon_list
+
   pigeon_list
 end
