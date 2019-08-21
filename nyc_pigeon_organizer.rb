@@ -1,3 +1,26 @@
 def nyc_pigeon_organizer(data)
-  # write your code here!
+  pigeon_list = {}
+  key = nil
+  
+  data.each do |trait|
+    key = trait[0]
+    value = trait[1]
+    
+    value.each_pair do |value, birds|
+      birds.each do |bird|
+        if(!pigeon_list[bird])
+          pigeon_list[bird] = {}
+        end
+        if(!pigeon_list[bird][key])
+          pigeon_list[bird][key] = []
+        end
+        
+        pigeon_list[bird][key].push(value.to_s)
+        
+      end
+    end
+  end
+  
+  p pigeon_list
+  pigeon_list
 end
