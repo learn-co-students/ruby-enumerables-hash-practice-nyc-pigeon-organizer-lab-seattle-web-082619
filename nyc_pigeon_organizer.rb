@@ -4,9 +4,9 @@ def nyc_pigeon_organizer(data)
   
   data.each do |trait|
     key = trait[0]
-    value = trait[1]
+    values = trait[1]
     
-    value.each_pair do |value, birds|
+    values.each_pair do |value, birds|
       birds.each do |bird|
         if(!pigeon_list[bird])
           pigeon_list[bird] = {}
